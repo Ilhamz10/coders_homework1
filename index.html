@@ -4,29 +4,134 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-	</head>
-	<body style="background-color: #008083">
-		<img src="assets/N.png" width="300" alt="" />
-		<ul>
-			<li>Naxcivan muxtar respublikasi</li>
-			<li>
-				Haqqinda
-				<ul>
-					<li>Erazi: 191.7</li>
-					<li>Ehalisi: 95.6 min</li>
-					<li>Neqliyat kodu: 75</li>
-					<li>Iqlimi: Subtropik</li>
-					<li>
-						Telefon kodlari
-						<ul>
-							<li>+994 36</li>
-							<li>+994 60</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-		</ul>
+		<style>
+			th,
+			tfoot td {
+				background: #b7e5b4;
+			}
 
-		<video src="assets/N.mp4" autoplay loop width="300" controls></video>
+			td {
+				background: #b5c1d1;
+			}
+
+			label {
+				font-weight: 700;
+			}
+		</style>
+	</head>
+	<body bgcolor="#35384B">
+		<center>
+			<table width="40%" border="1" cellspacing="0" cellpadding="15">
+				<thead>
+					<tr>
+						<th colspan="3">Muraciet et</th>
+					</tr>
+				</thead>
+				<tbody align="center">
+					<tr>
+						<th>Sekli yukleyin</th>
+						<td colspan="2"><input type="file" /></td>
+					</tr>
+					<tr>
+						<th>Ad</th>
+						<td colspan="2"><input type="text" placeholder="Ad" /></td>
+					</tr>
+					<tr>
+						<th>Soyad</th>
+						<td colspan="2"><input type="text" placeholder="Soyad" /></td>
+					</tr>
+					<tr>
+						<th>Dogum tarixi</th>
+						<td colspan="2"><input type="date" /></td>
+					</tr>
+					<tr>
+						<th>Cinsiyet</th>
+						<td colspan="2">
+							<label for="kisi">Kisi</label>
+							<input type="radio" name="gender" id="kisi" />
+
+							<label for="qadin">Qadin</label>
+							<input type="radio" name="gender" id="qadin" />
+						</td>
+					</tr>
+					<tr>
+						<th>Email</th>
+						<td colspan="2">
+							<input type="text" placeholder="Emailinizi yazin" />
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="2">Elaqe</th>
+						<th style="background: #ccd3cb">tel:</th>
+						<td><input type="text" placeholder="phone" /></td>
+					</tr>
+					<tr>
+						<th style="background: #ccd3cb">tel:</th>
+						<td><input type="text" placeholder="phone" /></td>
+					</tr>
+					<tr>
+						<th>Tecrubeleriniz</th>
+						<td colspan="2">
+							<textarea
+								style="width: 100%"
+								rows="3"
+								placeholder="Tecrubelerinizi qeyd edin..."></textarea>
+						</td>
+					</tr>
+					<tr>
+						<th>Xarici diller</th>
+						<td colspan="2">
+							<label for="en">Ingilis dili</label>
+							<input type="radio" name="lang" id="en" />
+
+							<label for="tr">Turk dili</label>
+							<input type="radio" name="lang" id="tr" />
+
+							<label for="ru">Rus dili</label>
+							<input type="radio" name="lang" id="ru" />
+						</td>
+					</tr>
+					<tr>
+						<th>Esgerlik</th>
+						<td colspan="2">
+							<select>
+								<option value="xidmetdeOlub">Xidmetde olub</option>
+								<option value="xidmetdeOlmuyub">Xidmetde olmayib</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Tehsil</th>
+						<td colspan="2">
+							<select>
+								<option value="ortaTehsil">Orta tehsil</option>
+								<option value="aliTehsil">Ali tehsil</option>
+							</select>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3" align="center">
+							<button>Tesdiq et</button>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+
+			<hr color="#b7e5b4" />
+			<hr color="#b7e5b4" />
+
+			<h2>Bizim Haqqimizda</h2>
+
+			<iframe
+				width="560"
+				height="315"
+				src="https://www.youtube.com/embed/nMgD_X0Cgg8?si=_q27KKfOv6Ptfi23"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen></iframe>
+		</center>
 	</body>
 </html>
