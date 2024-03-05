@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	font-family: 'Exo 2', sans-serif;
+}
+
+body {
+	background: gray;
+}
+
+.wrapper {
+	width: 40%;
+	min-width: 600px;
+	border: 3px solid black;
+	box-shadow: 0 0 20px -5px red;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+	text-shadow: 1px 1px 3px red;
+    text-decoration: underline;
+}
+
+.wrapper img {
+	display: block;
+	margin: 0 auto;
+	border: 3px dashed black;
+	box-shadow: 0 0 10px 0px red;
+    width: 100%;
+    max-width: 400px;
+}
+
+.wrapper .first_img{
+    max-width: 250px;
+}
+
+.first_paragraph {
+	margin-bottom: 60px;
+}
+
+.first_paragraph b,
+.second_paragraph b {
+	color: white;
+	text-shadow: 1px 1px 3px black;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+    word-spacing: 10px;
+    letter-spacing: 3px;
+}
+
+.first_paragraph span {
+	color: white;
+	text-shadow: 1px 1px 3px red;
+	text-decoration: underline;
+	font-size: 1.5rem;
+    word-spacing: 7px;
+}
+
+h2 {
+	color: brown;
+	text-shadow: 1px 1px 3px white;
+	text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.second_paragraph span{
+    color: brown;
+    text-decoration: line-through;
+    text-decoration-color: black;
+}
