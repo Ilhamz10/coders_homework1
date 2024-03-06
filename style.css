@@ -1,73 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Marhey:wght@300..700&display=swap');
 
 * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 	font-family: 'Exo 2', sans-serif;
 }
 
 body {
-	background: gray;
+	background: #f8e2cb;
 }
 
-.wrapper {
-	width: 40%;
-	min-width: 600px;
-	border: 3px solid black;
-	box-shadow: 0 0 20px -5px red;
-	padding: 20px;
-}
-
-h1 {
+.main-section {
+	height: 100vh;
+	background: url('./assets/bg.avif') center/cover no-repeat;
 	text-align: center;
+	padding: 150px 300px 0;
+}
+
+.main-section h1 {
+	color: #d3b498;
+	font-family: 'Marhey', sans-serif;
+	font-size: 46px;
+}
+
+.main-section h2 {
+	font-family: 'Marhey', sans-serif;
 	color: white;
-	text-shadow: 1px 1px 3px red;
-    text-decoration: underline;
+	font-size: 36px;
 }
 
-.wrapper img {
-	display: block;
-	margin: 0 auto;
-	border: 3px dashed black;
-	box-shadow: 0 0 10px 0px red;
-    width: 100%;
-    max-width: 400px;
-}
-
-.wrapper .first_img{
-    max-width: 250px;
-}
-
-.first_paragraph {
-	margin-bottom: 60px;
-}
-
-.first_paragraph b,
-.second_paragraph b {
+.main-section p {
 	color: white;
-	text-shadow: 1px 1px 3px black;
-	text-transform: uppercase;
-	font-size: 1.5rem;
-    word-spacing: 10px;
-    letter-spacing: 3px;
+	margin-top: 50px;
+
+	i {
+		color: #5a4735;
+		text-shadow: 3px 3px 20px #fff;
+	}
 }
 
-.first_paragraph span {
+.main-section button {
+	border-radius: 10px;
+	padding: 10px 30px;
 	color: white;
-	text-shadow: 1px 1px 3px red;
-	text-decoration: underline;
-	font-size: 1.5rem;
-    word-spacing: 7px;
+	background: #5a4735;
+	box-shadow: 0 0 5px 0px #fff;
+	border: none;
+	margin-top: 40px;
+	cursor: pointer;
 }
 
-h2 {
-	color: brown;
-	text-shadow: 1px 1px 3px white;
+.poison-section {
+	padding: 30px 50px;
 	text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+
+	h2 {
+		color: #5a4735;
+		text-shadow: 0 0 5px black;
+		font-family: 'Marhey', sans-serif;
+		font-size: 30px;
+	}
+
+	p {
+		text-align: left;
+	}
+	
+	img {
+		margin-top: 30px;
+		width: 60%;
+		min-width: 300px;
+	}
 }
 
-.second_paragraph span{
-    color: brown;
-    text-decoration: line-through;
-    text-decoration-color: black;
+.leather-section {
+	padding: 30px 50px;
+	text-align: center;
+
+	h2 {
+		color: #5a4735;
+		text-shadow: 0 0 5px black;
+		font-family: 'Marhey', sans-serif;
+		font-size: 30px;
+	}
+
+	p,
+	h4 {
+		text-align: left;
+	}
+
+	img {
+		width: 60%;
+		min-width: 300px;
+		margin-top: 30px;
+	}
 }
