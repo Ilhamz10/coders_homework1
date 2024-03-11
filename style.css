@@ -49,6 +49,9 @@ button {
 header {
 	background: var(--bg-color);
 	padding: 5px 0;
+	position: sticky;
+	top: 0;
+	z-index: 3;
 }
 
 .header-content {
@@ -80,6 +83,10 @@ header {
 	a {
 		color: var(--light-text);
 		text-shadow: 0 0 5px black;
+	}
+
+	a:hover {
+		color: white;
 	}
 }
 
