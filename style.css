@@ -319,8 +319,10 @@ section h2 {
 .about-section i:nth-last-of-type(2) {
 	left: 10px;
 	top: 50%;
+	translate: 0 -50%;
 }
 .about-section i:nth-last-of-type(1) {
 	right: 10px;
 	top: 50%;
+	translate: 0 -50%;
 }
