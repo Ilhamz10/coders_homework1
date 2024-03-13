@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Slackside+One&display=swap');
+
+/* font-family: "Slackside One", cursive; 
+font-family: "Poppins", sans-serif; */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Slackside One', cursive;
+	color: white;
+	font-size: 24px;
+}
+
+body {
+	height: 100vh;
+
+	background: linear-gradient(
+			61deg,
+			rgba(28, 28, 29, 0.368) 0%,
+			rgba(1, 1, 1, 0.264) 100%
+		),
+		url('https://images.unsplash.com/photo-1656608138197-2aea23cc3564?q=80&w=1977&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+			center/cover no-repeat;
+}
+
+.wrapper {
+	width: min(100% - 30px, 1100px);
+	margin: 0 auto;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header-cont {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+}
+
+nav ul {
+	display: flex;
+	gap: 30px;
+
+	li {
+		position: relative;
+		overflow: hidden;
+	}
+
+	li::before {
+		content: '';
+		width: 100%;
+		position: absolute;
+		height: 2px;
+		left: -100%;
+		background: blue;
+		bottom: 0;
+		transition: 1s;
+	}
+
+	li:hover::before {
+		left: 0;
+	}
+}
+
+.logo img {
+	width: 50px;
+	filter: drop-shadow(10px 10px 10px blue);
+	transition: 1s;
+}
+
+.logo img:hover {
+	transform: rotateY(360deg);
+}
+
+nav ul button {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+
+	i {
+		color: blue;
+		font-size: 25px;
+	}
+}
+
+.section-content {
+	display: flex;
+	gap: 40px;
+	align-items: center;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+	flex: 2;
+}
+
+.section-text {
+	flex: 3;
+
+	h1 {
+		font-size: 100px;
+		text-transform: uppercase;
+		transition: 1s;
+	}
+
+	h1:hover{
+		filter: drop-shadow(10px 10px 10px aqua);
+	}
+
+	button {
+		background: none;
+		color: white;
+		position: relative;
+		overflow: hidden;
+		border: none;
+		border-radius: 10px;
+		padding: 10px 30px;
+		width: 200px;
+		border: 1px solid black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 30px;
+	}
+
+	button::before {
+		content: '';
+		width: 200%;
+		height: 100%;
+		top: 0;
+		background: linear-gradient(90deg, blue, aqua);
+		position: absolute;
+		z-index: -1;
+		right: -100%;
+		transition: 1.3s;
+	}
+
+	button:hover::before {
+		right: 0;
+	}
+}
+
+.cards .card {
+	transition: 1s;
+	background: linear-gradient(
+			61deg,
+			rgba(28, 28, 29, 0.368) 0%,
+			rgba(1, 1, 1, 0.264) 100%
+		),
+		url('https://images.unsplash.com/photo-1598482327649-e8831e1505be?q=80&w=2042&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+			center/cover no-repeat;
+	min-height: 250px;
+	border-radius: 20px;
+	box-shadow: 0 0 15px -5px white;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	padding: 10px;
+
+	h2 {
+		font-size: 17px;
+	}
+	p {
+		font-size: 15px;
+	}
+}
+
+.card:hover {
+	transform: scale(1.2);
+	box-shadow: 0 0 25px -5px aqua;
+}
+
+.cards .card:nth-last-of-type(2) {
+	background: linear-gradient(
+			61deg,
+			rgba(28, 28, 29, 0.368) 0%,
+			rgba(1, 1, 1, 0.264) 100%
+		),
+		url('https://images.unsplash.com/photo-1582236829590-f8cb7de75229?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+			center/cover no-repeat;
+}
+
+.cards .card:nth-last-of-type(3) {
+	background: linear-gradient(
+			61deg,
+			rgba(28, 28, 29, 0.368) 0%,
+			rgba(1, 1, 1, 0.264) 100%
+		),
+		url('https://images.unsplash.com/photo-1607335614551-3062bf90f30e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+			center/cover no-repeat;
+}
+
+.cards .card:nth-last-of-type(4) {
+	background: linear-gradient(
+			61deg,
+			rgba(28, 28, 29, 0.368) 0%,
+			rgba(1, 1, 1, 0.264) 100%
+		),
+		url('https://images.unsplash.com/photo-1607335614785-e1436e859ebf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+			center/cover no-repeat;
+}
