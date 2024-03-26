@@ -3,317 +3,415 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./animations.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="./styles.css" />
 		<title>Document</title>
 	</head>
 	<body>
-		<header id="top">
-			<div class="wrapper">
-				<div class="header-content">
-					<div class="logo">
-						<img
-							src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/logo4.png"
-							alt="" />
+		<header>
+			<div class="header-top">
+				<img
+					src="https://public-assets.envato-static.com/assets/logos/envato_market-dde916a48af7413e54aa058fe7ae6856752fca799da4bec355f00aea904bfa19.svg"
+					alt="" />
+				<button>Buy now</button>
+			</div>
+			<div class="secondary-header">
+				<div class="wrapper">
+					<div class="secondary-header-content">
+						<p>Free shipping over $100</p>
+						<nav>
+							<ul>
+								<li>
+									<a href="#">FAQ</a>
+								</li>
+								<li>
+									<a href="#">Support</a>
+								</li>
+								<li>
+									<div class="dropdown">
+										<div class="active-drop-item">USD</div>
+										<ul>
+											<li>EUR</li>
+											<li>GBP</li>
+											<li>GAP</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
 					</div>
-					<button class="togle-menu-btn">
-						<iconify-icon
-							icon="heroicons-outline:menu-alt-4"
-							width="40"
-							height="40"></iconify-icon>
-					</button>
+				</div>
+			</div>
+			<div class="main-header">
+				<div class="wrapper">
+					<div class="main-header-content">
+						<svg
+							preserveAspectRatio="xMinYMin"
+							version="1.1"
+							id="Layer_1-1681028126"
+							x="0px"
+							y="0px"
+							viewBox="0 0 75.8 75.8"
+							width="30"
+							height="30"
+							style="enable-background: new 0 0 75.8 75.8"
+							xml:space="preserve">
+							<path
+								d="M37.9,0C17,0,0,17,0,37.9c0,20.9,17,37.9,37.9,37.9c20.9,0,37.9-17,37.9-37.9C75.8,17,58.9,0,37.9,0z M50.8,44.1
+								c0,2-0.3,3.7-1,5.2c-0.6,1.5-1.5,2.8-2.7,3.8c-1.2,1-2.5,1.8-4.1,2.3c-1.6,0.5-3.3,0.8-5.1,0.8c-1.9,0-3.6-0.3-5.1-0.8
+								c-1.6-0.5-2.9-1.3-4.1-2.3c-1.2-1-2-2.3-2.7-3.8c-0.6-1.5-1-3.2-1-5.2V21.6h6.9v22.1c0,1.9,0.5,3.5,1.5,4.6c1,1.2,2.5,1.8,4.5,1.8
+								c2,0,3.5-0.6,4.5-1.8c1-1.2,1.5-2.7,1.5-4.6V21.6h6.9V44.1z M58.2,55.1c-0.7,0.8-1.7,1.2-2.8,1.2c-1.1,0-2.1-0.4-2.8-1.2
+								c-0.8-0.8-1.1-1.7-1.1-2.7c0-1.1,0.4-2,1.1-2.8c0.8-0.8,1.7-1.1,2.8-1.1c1.2,0,2.1,0.4,2.8,1.1c0.7,0.8,1.1,1.7,1.1,2.8
+								C59.3,53.5,58.9,54.4,58.2,55.1z"></path>
+						</svg>
+						<nav>
+							<ul>
+								<li><a href="#">Demos</a></li>
+								<li><a href="#">Features</a></li>
+								<li><a href="#">Works</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Shop</a></li>
+								<li><a href="#">Pages</a></li>
+								<li><a href="#">Extra</a></li>
+							</ul>
+						</nav>
+						<ul class="header-btns">
+							<li>
+								<a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="fa-solid fa-person"></i> </a>
+							</li>
+							<li>
+								<a href="#"><i class="fa-regular fa-heart"></i></a>
+							</li>
+							<li>
+								<a href="#"><i class="fa-solid fa-lock"></i></a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</header>
 		<main>
-			<section class="slider">
-				<h1>
-					<p>Design of interios,</p>
-					<p>the art of organizing interior space.</p>
-				</h1>
-			</section>
-			<section>
+			<section class="title-section">
 				<div class="wrapper">
-					<div class="welcome-section-content">
-						<h2 class="title">Welcome</h2>
-						<div class="text-content">
-							<p>
-								Practicing at the confluence of art, architecture, and building
-								technology, we collaborate with clients to create buildings and
-								environments in dialogue with culture and place.
-							</p>
-							<p>
-								Praesent ut sem eu diam varius sodales. Integer erat tellus,
-								accumsan a diam sit amet, sollicitudin molestie erat. Nulla quis
-								aliquet elit. Nullam ac accumsan nisi, vitae bibendum elit. Ut
-								felis lacus, fermentum ut orci nec, consectetur rhoncus ipsum.
-								Donec tincidunt ipsum eget vehicula facilisis. Duis quis odio ut
-								turpis fringilla umet.
-							</p>
-						</div>
+					<div class="title-section-content">
+						<h3>BACKPACK COLLECTION</h3>
+						<h1>Discover must-have special offers and promos</h1>
+						<button>Discover Now</button>
 					</div>
 				</div>
 			</section>
-			<section>
+			<section class="products-section">
 				<div class="wrapper">
-					<div class="galery">
-						<div class="galery-item-1 galery-item">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2015/04/Eichler-in-Marinwood-Shoup-Building-Lab-1.jpg"
-								alt="" />
-
-							<div class="galery-item-hover-content">
-								<h3>MF Residence</h3>
-								<a href="#">Planning</a>
-							</div>
-						</div>
-						<div class="galery-item-2 galery-item">
-							<video
-								autoplay
-								loop
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2021/04/arch.mp4"></video>
-							<div class="galery-item-hover-content">
-								<h3>MF Residence</h3>
-								<a href="#">Planning</a>
-							</div>
-						</div>
-						<div class="galery-item-3 galery-item">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2015/04/SAOTAfirstcrescent1-450x480.jpg"
-								alt="" />
-							<div class="galery-item-hover-content">
-								<h3>MF Residence</h3>
-								<a href="#">Planning</a>
-							</div>
-						</div>
-						<div class="galery-item-4 galery-item">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2015/04/MF-Architecture-Tree-House-Residence-1.jpg"
-								alt="" />
-							<div class="galery-item-hover-content">
-								<h3>MF Residence</h3>
-								<a href="#">Planning</a>
-							</div>
-						</div>
-						<div class="galery-item-5 galery-item">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2015/03/150223_brays_island_sc_modern_i_01-570x480.jpg"
-								alt="" />
-							<div class="galery-item-hover-content">
-								<h3>MF Residence</h3>
-								<a href="#">Planning</a>
-							</div>
-						</div>
+					<div class="filters-container">
+						<button>
+							Sort by latest <i class="fa-solid fa-sort-down"></i>
+						</button>
+						<button>
+							Show filters <i class="fa-solid fa-arrow-up-wide-short"></i>
+						</button>
 					</div>
-					<a href="" class="projects-link"> See our latest projects ➝ </a>
-				</div>
-			</section>
-			<section>
-				<div class="design-type">
-					<div class="wrapper">
-						<div class="design-type-text">
-							<h3>Environmental Engineering</h3>
-							<p>
-								Frequently partiality possession resolution at or appearance
-								unaffected he me. Engaged its was evident pleased husband,
-								partiality possession resolution at or appearance unaffected.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="design-type">
-					<div class="wrapper">
-						<div class="design-type-text">
-							<h3>Environmental Engineering</h3>
-							<p>
-								Frequently partiality possession resolution at or appearance
-								unaffected he me. Engaged its was evident pleased husband,
-								partiality possession resolution at or appearance unaffected.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="design-type">
-					<div class="wrapper">
-						<div class="design-type-text">
-							<h3>Environmental Engineering</h3>
-							<p>
-								Frequently partiality possession resolution at or appearance
-								unaffected he me. Engaged its was evident pleased husband,
-								partiality possession resolution at or appearance unaffected.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="partners-section">
-				<div class="wrapper">
-					<div class="partners-section-head">
-						<h2>Clients & Partners</h2>
-						<p>
-							Pellentesque luctus, dui sit amet blandit ornare, lacus turpis
-							maximus nulla, at porttitor magna purus vel nunc.
-						</p>
-					</div>
-					<div class="partners">
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-1-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-2-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cl-logo-3-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-4-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-5-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-6-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-7-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-8-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-9-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-						<div class="partner">
-							<img
-								src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/05/cp-logo-10-468x468.png"
-								alt="" />
-							<div class="partner-hover-cont">Barclays</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="news-section">
-				<div class="wrapper">
-					<div class="news-section-content">
-						<h2>News</h2>
-						<p>
-							Pellentesque luctus, dui sit amet blandit ornare, lacus turpis
-							maximus nulla, at porttitor magna purus vel nunc.
-						</p>
-						<div class="news">
-							<div class="news-img">
+					<div class="products">
+						<div class="product">
+							<div class="img-container">
 								<img
-									src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/04/christopher-burns-286429-unsplash-300x204.jpg"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
 									alt="" />
 							</div>
-							<div class="news-text">
-								<h3>Integrated Way of Working</h3>
-								<p>
-									Boy prosperous increasing surrounded companions her nor
-									advantages sufficient put. John on time down give meet help
-									as…
-								</p>
-							</div>
 						</div>
-						<div class="news">
-							<div class="news-img">
+						<div class="product">
+							<div class="img-container">
 								<img
-									src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/04/christopher-burns-286429-unsplash-300x204.jpg"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
 									alt="" />
 							</div>
-							<div class="news-text">
-								<h3>Integrated Way of Working</h3>
-								<p>
-									Boy prosperous increasing surrounded companions her nor
-									advantages sufficient put. John on time down give meet help
-									as…
-								</p>
-							</div>
 						</div>
-						<div class="news">
-							<div class="news-img">
+						<div class="product">
+							<div class="img-container">
 								<img
-									src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/04/christopher-burns-286429-unsplash-300x204.jpg"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
 									alt="" />
 							</div>
-							<div class="news-text">
-								<h3>Integrated Way of Working</h3>
-								<p>
-									Boy prosperous increasing surrounded companions her nor
-									advantages sufficient put. John on time down give meet help
-									as…
-								</p>
-							</div>
 						</div>
-						<div class="news">
-							<div class="news-img">
+						<div class="product">
+							<div class="img-container">
 								<img
-									src="https://demo.kaliumtheme.com/architecture/wp-content/uploads/2018/04/christopher-burns-286429-unsplash-300x204.jpg"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
 									alt="" />
 							</div>
-							<div class="news-text">
-								<h3>Integrated Way of Working</h3>
-								<p>
-									Boy prosperous increasing surrounded companions her nor
-									advantages sufficient put. John on time down give meet help
-									as…
-								</p>
+						</div>
+						<div class="product">
+							<div class="img-container">
+								<img
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
+									alt="" />
+							</div>
+						</div>
+						<div class="product">
+							<div class="img-container">
+								<img
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
+									alt="" />
+							</div>
+						</div>
+						<div class="product">
+							<div class="img-container">
+								<img
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
+									alt="" />
+							</div>
+						</div>
+						<div class="product">
+							<div class="img-container">
+								<img
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
+									alt="" />
+							</div>
+						</div>
+						<div class="product">
+							<div class="img-container">
+								<img
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2022/05/product-Stealth-Backpack-a-1-uai-360x450.jpg"
+									alt="" />
+								<div class="product-btns">
+									<button><i class="fa-solid fa-magnifying-glass"></i></button>
+									<button><i class="fa-regular fa-heart"></i></button>
+								</div>
+								<div class="colors-options">
+									<div class="black color"></div>
+									<div class="orange color"></div>
+									<div class="green color"></div>
+								</div>
+							</div>
+							<div class="product-info">
+								<p class="product-cat">Apparel,Backpacks</p>
+								<h3 class="product-name">Everyday Backpack</h3>
+								<p class="price">$125</p>
+								<hr />
+								<img
+									class="product-icon"
+									src="https://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2019/08/logo-american-apparel-min.png"
+									alt="" />
 							</div>
 						</div>
 					</div>
-					<a href="" class="projects-link"> More news ➝ </a>
 				</div>
 			</section>
 		</main>
 		<footer>
 			<div class="wrapper">
 				<div class="footer-content">
-					<p>© Copyright 2024 — Kalium Theme by Laborator</p>
-					<div class="arrow-up">
-						<a href="#top">
-							<iconify-icon
-								icon="teenyicons:arrow-up-outline"
-								width="30"
-								height="30"></iconify-icon>
-						</a>
+					<div class="right-footer">
+						<h2>NEWSLETTER — SIGN UP</h2>
+						<p>
+							NEWSLETTER — SIGN UP Be the first to know about special offers,
+							new product launches, and events.
+						</p>
+						<form>
+							<div class="input-cont">
+								<input placeholder="Your email" type="text" />
+								<button>Subscribe</button>
+							</div>
+						</form>
 					</div>
-					<ul>
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Instagram</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Houzz</a></li>
-					</ul>
+					<div></div>
+					<div>
+						<h3>SHOP</h3>
+						<ul>
+							<li>Shop All</li>
+							<li>Woman Collection</li>
+							<li>Man Collection</li>
+							<li>Accessories</li>
+							<li>New Arrivals</li>
+							<li>Latest Collection</li>
+							<li>Gift Card</li>
+							<li>Top Sellers</li>
+						</ul>
+					</div>
+					<div>
+						<h3>CUSTOMERS</h3>
+						<ul>
+							<li>Faqs</li>
+							<li>Shipping</li>
+							<li>Returns</li>
+							<li>Terms</li>
+							<li>Contact Us</li>
+							<li>Privacy</li>
+						</ul>
+					</div>
+					<div>
+						<h3>CONTACT US</h3>
+						<ul>
+							<li>help@yourwebsite.com</li>
+							<li>1-888-625-8064</li>
+							<li>1-888-912-8375</li>
+						</ul>
+					</div>
 				</div>
 			</div>
+			<hr />
+			<div class="wrapper">
+				<p>© 2024 Uncode. All rights reserved</p>
+			</div>
 		</footer>
-
-		<script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.0.0/dist/iconify-icon.min.js"></script>
 	</body>
 </html>
