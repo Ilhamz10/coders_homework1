@@ -238,8 +238,6 @@ var groups = {
 
 var editGroupId = -1;
 
-console.log('gogogog jscolor');
-
 useHead({
 	titleTemplate: (title) => `Мероприятие №${route.params.id}`,
 	viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
@@ -321,181 +319,120 @@ await useFetch(`https://ticketscms.tellarion.dev/api/events/detail`, {
 
 		for (let i = 0; i < getGroupsList.length; i++) {
 			let getPlacesGroups = JSON.parse(getGroupsList[i].places);
-			groups.active = groups.list.length;
+			groups.active = {
+				id: getGroupsList[0].id,
+				color: getGroupsList[0].color,
+			};
 			groups.edit = false;
 			groups.list.push({
+				id: getGroupsList[i].id,
 				comment: getGroupsList[i].comment,
 				color: getGroupsList[i].color,
 				coast: getGroupsList[i].coast,
 				places: getPlacesGroups,
 				selected: getPlacesGroups.length,
+				edit: false,
+			});
+		}
+		manageFormGroup('load', $('.selGroup'), groups);
+
+		function manageFormGroup(type, parent, items, id) {
+			if (type === 'load') {
+				parent.html('');
+				for (let group of items.list) {
+					let liElem = '<li>';
+					liElem += `<form data-group="${group.id}">
+		            <div class="name"><label>Название: ${group.comment}</label></div>
+		            <div class="count"><label>Выбранное количество: <span>${group.selected}</span></label></div>
+		            <div class="price"><label>Цена: ${group.coast}</label></div>
+		            <div class="color"><label>Цвет: ${group.color} <div class="previewColorMin" style="background-color: ${group.color}; height: 16px; width: 16px; display: inline-block;"></div></div>
+		            <div class="actions"><div class="row"><button class="btn btn-primary editGroup">Редактировать</div></div>
+		          </form>`;
+					liElem += '</li>';
+					parent.append(liElem);
+				}
+			}
+
+			if (type === 'edit') {
+				const currentGroup = items.list.find((group) => group.id === id);
+				let liElem = `<form data-group="${id}">
+		            <div class="name"><label>Название</label><input type="text" id="gTitle" class="form-control" placeholder="${currentGroup.comment}" value="" /></div>
+		            <div class="count"><label>Выбранное количество: <span>${currentGroup.selected}</span></label></div>
+		            <div class="price"><label>Цена</label><input type="number" class="form-control" id="gCoast" value="${currentGroup.coast}"/></div>
+		            <div class="color"><label>Цвет (hex, name)</label><input type="text" class="form-control" id="gColor" onChange="updateColor(this.jscolor);" data-jscolor="${currentGroup.color}" value="${currentGroup.color}"/></div>
+		            <div class="actions"><div class="row"><button class="btn btn-success" id="saveGroup">Сохранить</div> <div class="row"><button class="btn btn-danger" id="removeGroup">Удалить</div></div></div>
+		          </form>`;
+
+				parent.innerHTML = liElem;
+			}
+		}
+
+		$('.selGroup').click(function (e) {
+			if (e.target.innerText.includes('Редактировать')) {
+				e.preventDefault();
+				let parent = e.target.parentNode.parentNode.parentNode.parentNode;
+				let id = Number(
+					e.target.parentNode.parentNode.parentNode.getAttribute('data-group')
+				);
+				let isThereEditedGroup = groups.list.some((group) => group.edit);
+				const currentGroup = groups.list.find((group) => group.id === id);
+				groups.active = {
+					id: currentGroup.id,
+					color: currentGroup.color,
+				};
+				if (!isThereEditedGroup) {
+					currentGroup.edit = true;
+					manageFormGroup('edit', parent, groups, id);
+				} else {
+					alert('Please firstly save changes');
+				}
+
+				console.log(groups);
+			}
+
+			if (e.target.innerText.includes('Сохранить')) {
+				e.preventDefault();
+				let id = Number(
+					e.target.parentNode.parentNode.parentNode.getAttribute('data-group')
+				);
+				const currentGroup = groups.list.find((group) => group.id === id);
+				currentGroup.comment =
+					$(`form[data-group=${id}] #gTitle`).val().trim() === ''
+						? currentGroup.comment
+						: $(`form[data-group=${id}] #gTitle`).val().trim();
+				currentGroup.coast = $(`form[data-group=${id}] #gCoast`).val();
+				currentGroup.color = $(`form[data-group=${id}] #gColor`).val();
+				currentGroup.edit = false;
+				manageFormGroup('load', $('.selGroup'), groups);
+			}
+
+			if (e.target.innerText.includes('Удалить')) {
+				e.preventDefault();
+				let id = Number(
+					e.target.parentNode.parentNode.parentNode.getAttribute('data-group')
+				);
+				groups = {
+					...groups,
+					list: groups.list.filter((group) => group.id !== id),
+				};
+				manageFormGroup('load', $('.selGroup'), groups);
+			}
+		});
+
+		$('#addGroup').click(function () {
+			let randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+			let id = groups.list.length > 0 ? groups.list.at(-1).id + 1 : 1;
+
+			groups.list.unshift({
+				id,
+				comment: `Новая группа #${id + 1}`,
+				color: randomColor,
+				coast: 1000,
+				places: [],
+				selected: 0,
+				edit: false,
 			});
 			manageFormGroup('load', $('.selGroup'), groups);
-		}
-
-		//
-
-		function manageFormGroup(type, element, groups, editValue) {
-			let activeIdx =
-				type == 'new' || type == 'load' ? groups.active : editValue;
-			let tplGroupEdit = ``;
-			if (type == 'new' || type == 'load') tplGroupEdit += `<li>`;
-
-			if (type == 'new' || type == 'edit')
-				tplGroupEdit += `
-              <form data-group="${activeIdx}">
-                <div class="name"><label>Название</label><input type="text" id="gTitle" class="form-control" placeholder="${groups.list[activeIdx].comment}" value="" /></div>
-                <div class="count"><label>Выбранное количество: <span>${groups.list[activeIdx].selected}</span></label></div>
-                <div class="price"><label>Цена</label><input type="number" class="form-control" id="gCoast" value="${groups.list[activeIdx].coast}"/></div>
-                <div class="color"><label>Цвет (hex, name)</label><input type="text" class="form-control" id="gColor" onChange="updateColor(this.jscolor);" data-jscolor="${groups.list[activeIdx].color}" value="${groups.list[activeIdx].color}"/></div>
-                <div class="actions"><div class="row"><button class="btn btn-success" id="saveGroup">Сохранить</div> <div class="row"><button class="btn btn-danger" id="removeGroup">Удалить</div></div></div>
-              </form>
-            `;
-
-			if (type == 'load')
-				tplGroupEdit += `
-              <form data-group="${activeIdx}">
-                  <div class="name"><label>Название: ${groups.list[activeIdx].comment}</label></div>
-                  <div class="count"><label>Выбранное количество: <span>${groups.list[activeIdx].selected}</span></label></div>
-                  <div class="price"><label>Цена: ${groups.list[activeIdx].coast}</label></div>
-                  <div class="color"><label>Цвет: ${groups.list[activeIdx].color} <div class="previewColorMin" style="background-color: ${groups.list[activeIdx].color}; height: 16px; width: 16px; display: inline-block;"></div></div>
-                  <div class="actions"><div class="row"><button class="btn btn-primary editGroup">Редактировать</div></div>
-              </form>
-            `;
-
-			if (type == 'new' || type == 'load') tplGroupEdit += `</li>`;
-
-			if (type == 'new' || type == 'load') element.append(tplGroupEdit);
-
-			if (type == 'edit') element.html(tplGroupEdit);
-
-			if (type == 'remove') element.remove();
-
-			if (type == 'new' || type == 'edit') {
-				$('#gTitle').off();
-				$('#gTitle').on('change', function () {
-					if ((groups.edit = true)) {
-						groups.list[activeIdx].comment = $(this).val();
-					}
-				});
-
-				$('#gCoast').off();
-				$('#gCoast').on('change', function () {
-					if ((groups.edit = true)) {
-						groups.list[activeIdx].coast = $(this).val();
-					}
-				});
-
-				$('#gColor').off();
-				$('#gColor').on('change', function () {
-					let vColor = $(this).val();
-					if ((groups.edit = true)) {
-						groups.list[activeIdx].color = vColor;
-					}
-				});
-
-				jscolor.install();
-
-				jscolor.trigger('input change');
-
-				$('#saveGroup').off();
-				$('#saveGroup').on('click', function (e) {
-					e.preventDefault();
-					console.log('save data');
-					console.log(groups);
-					$(`.selGroup [data-group='${activeIdx}']`).html(`
-                  <form data-group="${activeIdx}">
-                    <div class="name"><label>Название: ${groups.list[activeIdx].comment}</label></div>
-                    <div class="count"><label>Выбранное количество: <span>${groups.list[activeIdx].selected}</span></label></div>
-                    <div class="price"><label>Цена: ${groups.list[activeIdx].coast}</label></div>
-                    <div class="color"><label>Цвет: ${groups.list[activeIdx].color} <div class="previewColorMin" style="background-color: ${groups.list[activeIdx].color}; height: 16px; width: 16px; display: inline-block;"></div></div>
-                    <div class="actions"><div class="row"><button class="btn btn-primary editGroup">Редактировать</div></div>
-                  </form>
-                `);
-					groups.edit = false;
-					groups.active = -1;
-					//$('#return').click()
-
-					$('.editGroup').off();
-					$('.editGroup').on('click', function (e) {
-						e.preventDefault();
-						if (groups.edit == false) {
-							let getValue = $(this).parent().parent().parent().data('group');
-							groups.active = getValue;
-							groups.edit = true;
-							manageFormGroup(
-								'edit',
-								$(this).parent().parent().parent(),
-								groups,
-								getValue
-							);
-						}
-					});
-				});
-
-				$('#removeGroup').off();
-				$('#removeGroup').on('click', function (e) {
-					e.preventDefault();
-					let getValue = $(this).parent().parent().parent().data('group');
-					groups.list.splice(groups.active, 1);
-					groups.active = -1;
-					groups.edit = false;
-					manageFormGroup(
-						'remove',
-						$(this).parent().parent().parent().parent(),
-						groups,
-						getValue
-					);
-					$('#return').click();
-					// fix after
-					//saveGroups(groups.list, route.params.id)
-					//window.location.reload()
-				});
-			}
-
-			if (type == 'load') {
-				$('.editGroup').off();
-				$('.editGroup').on('click', function (e) {
-					e.preventDefault();
-					if (groups.edit == false) {
-						let getValue = $(this).parent().parent().parent().data('group');
-						groups.active = getValue;
-						groups.edit = true;
-						manageFormGroup(
-							'edit',
-							$(this).parent().parent().parent(),
-							groups,
-							getValue
-						);
-					}
-				});
-			}
-		}
-
-		$('#addGroup').on('click', function () {
-			if (groups.edit == false) {
-				groups.active = groups.list.length;
-				groups.edit = true;
-
-				let randomColor = `#${Math.floor(Math.random() * 16777215).toString(
-					16
-				)}`;
-
-				groups.list.push({
-					comment: `Новая группа #${groups.active + 1}`,
-					color: randomColor,
-					coast: 1000,
-					places: [],
-					selected: 0,
-				});
-
-				manageFormGroup('new', $('.selGroup'), groups);
-
-				console.log('ID GROUP');
-				console.log(groups.active);
-			} else {
-				alert('Закончите редактирование группы для создания новой');
-			}
 		});
 
 		$('#saveGroups').on('click', function () {
@@ -505,6 +442,181 @@ await useFetch(`https://ticketscms.tellarion.dev/api/events/detail`, {
 				alert('Недостаточно групп для сохранения');
 			}
 		});
+
+		console.log(groups);
+
+		//
+
+		// function manageFormGroup(type, element, groups, editValue) {
+		// 	let activeIdx =
+		// 		type == 'new' || type == 'load' ? groups.active : editValue;
+		// 	let tplGroupEdit = ``;
+		// 	if (type == 'new' || type == 'load') tplGroupEdit += `<li>`;
+
+		// 	if (type == 'new' || type == 'edit')
+		// 		tplGroupEdit += `
+		//           <form data-group="${activeIdx}">
+		//             <div class="name"><label>Название</label><input type="text" id="gTitle" class="form-control" placeholder="${groups.list[activeIdx].comment}" value="" /></div>
+		//             <div class="count"><label>Выбранное количество: <span>${groups.list[activeIdx].selected}</span></label></div>
+		//             <div class="price"><label>Цена</label><input type="number" class="form-control" id="gCoast" value="${groups.list[activeIdx].coast}"/></div>
+		//             <div class="color"><label>Цвет (hex, name)</label><input type="text" class="form-control" id="gColor" onChange="updateColor(this.jscolor);" data-jscolor="${groups.list[activeIdx].color}" value="${groups.list[activeIdx].color}"/></div>
+		//             <div class="actions"><div class="row"><button class="btn btn-success" id="saveGroup">Сохранить</div> <div class="row"><button class="btn btn-danger" id="removeGroup">Удалить</div></div></div>
+		//           </form>
+		//         `;
+
+		// 	if (type == 'load')
+		// 		tplGroupEdit += `
+		//           <form data-group="${activeIdx}">
+		//               <div class="name"><label>Название: ${groups.list[activeIdx].comment}</label></div>
+		//               <div class="count"><label>Выбранное количество: <span>${groups.list[activeIdx].selected}</span></label></div>
+		//               <div class="price"><label>Цена: ${groups.list[activeIdx].coast}</label></div>
+		//               <div class="color"><label>Цвет: ${groups.list[activeIdx].color} <div class="previewColorMin" style="background-color: ${groups.list[activeIdx].color}; height: 16px; width: 16px; display: inline-block;"></div></div>
+		//               <div class="actions"><div class="row"><button class="btn btn-primary editGroup">Редактировать</div></div>
+		//           </form>
+		//         `;
+
+		// 	if (type == 'new' || type == 'load') tplGroupEdit += `</li>`;
+
+		// 	if (type == 'new' || type == 'load') element.append(tplGroupEdit);
+
+		// 	if (type == 'edit') element.html(tplGroupEdit);
+
+		// 	if (type == 'remove') element.remove();
+
+		// 	if (type == 'new' || type == 'edit') {
+		// 		$('#gTitle').off();
+		// 		$('#gTitle').on('change', function () {
+		// 			if ((groups.edit = true)) {
+		// 				groups.list[activeIdx].comment = $(this).val();
+		// 			}
+		// 		});
+
+		// 		$('#gCoast').off();
+		// 		$('#gCoast').on('change', function () {
+		// 			if ((groups.edit = true)) {
+		// 				groups.list[activeIdx].coast = $(this).val();
+		// 			}
+		// 		});
+
+		// 		$('#gColor').off();
+		// 		$('#gColor').on('change', function () {
+		// 			let vColor = $(this).val();
+		// 			if ((groups.edit = true)) {
+		// 				groups.list[activeIdx].color = vColor;
+		// 			}
+		// 		});
+
+		// 		jscolor.install();
+
+		// 		jscolor.trigger('input change');
+
+		// 		$('#saveGroup').off();
+		// 		$('#saveGroup').on('click', function (e) {
+		// 			e.preventDefault();
+		// 			console.log('save data');
+		// 			console.log(groups);
+		// 			$(`.selGroup [data-group='${activeIdx}']`).html(`
+		//               <form data-group="${activeIdx}">
+		//                 <div class="name"><label>Название: ${groups.list[activeIdx].comment}</label></div>
+		//                 <div class="count"><label>Выбранное количество: <span>${groups.list[activeIdx].selected}</span></label></div>
+		//                 <div class="price"><label>Цена: ${groups.list[activeIdx].coast}</label></div>
+		//                 <div class="color"><label>Цвет: ${groups.list[activeIdx].color} <div class="previewColorMin" style="background-color: ${groups.list[activeIdx].color}; height: 16px; width: 16px; display: inline-block;"></div></div>
+		//                 <div class="actions"><div class="row"><button class="btn btn-primary editGroup">Редактировать</div></div>
+		//               </form>
+		//             `);
+		// 			groups.edit = false;
+		// 			groups.active = -1;
+		// 			//$('#return').click()
+
+		// 			$('.editGroup').off();
+		// 			$('.editGroup').on('click', function (e) {
+		// 				e.preventDefault();
+		// 				if (groups.edit == false) {
+		// 					let getValue = $(this).parent().parent().parent().data('group');
+		// 					groups.active = getValue;
+		// 					groups.edit = true;
+		// 					manageFormGroup(
+		// 						'edit',
+		// 						$(this).parent().parent().parent(),
+		// 						groups,
+		// 						getValue
+		// 					);
+		// 				}
+		// 			});
+		// 		});
+
+		// 		$('#removeGroup').off();
+		// 		$('#removeGroup').on('click', function (e) {
+		// 			e.preventDefault();
+		// 			let getValue = $(this).parent().parent().parent().data('group');
+		// 			groups.list.splice(groups.active, 1);
+		// 			groups.active = -1;
+		// 			groups.edit = false;
+		// 			manageFormGroup(
+		// 				'remove',
+		// 				$(this).parent().parent().parent().parent(),
+		// 				groups,
+		// 				getValue
+		// 			);
+		// 			$('#return').click();
+		// 			// fix after
+		// 			//saveGroups(groups.list, route.params.id)
+		// 			//window.location.reload()
+		// 		});
+		// 	}
+
+		// 	if (type == 'load') {
+		// 		$('.editGroup').off();
+		// 		$('.editGroup').on('click', function (e) {
+		// 			e.preventDefault();
+		// 			if (groups.edit == false) {
+		// 				let getValue = $(this).parent().parent().parent().data('group');
+		// 				groups.active = getValue;
+		// 				groups.edit = true;
+		// 				manageFormGroup(
+		// 					'edit',
+		// 					$(this).parent().parent().parent(),
+		// 					groups,
+		// 					getValue
+		// 				);
+		// 			}
+		// 		});
+		// 	}
+		// }
+
+		// $('#addGroup').on('click', function () {
+		// 	if (groups.edit == false) {
+		// 		groups.active = groups.list.length;
+		// 		groups.edit = true;
+
+		// 		let randomColor = `#${Math.floor(Math.random() * 16777215).toString(
+		// 			16
+		// 		)}`;
+
+		// 		groups.list.push({
+		// 			comment: `Новая группа #${groups.active + 1}`,
+		// 			color: randomColor,
+		// 			coast: 1000,
+		// 			places: [],
+		// 			selected: 0,
+		// 		});
+
+		// 		manageFormGroup('new', $('.selGroup'), groups);
+
+		// 		console.log('ID GROUP');
+		// 		console.log(groups.active);
+		// 	} else {
+		// 		alert('Закончите редактирование группы для создания новой');
+		// 	}
+		// });
+
+		// $('#saveGroups').on('click', function () {
+		// 	if (groups.list.length >= 0) {
+		// 		saveGroups(groups.list, route.params.id);
+		// 	} else {
+		// 		alert('Недостаточно групп для сохранения');
+		// 	}
+		// });
 	});
 });
 </script>

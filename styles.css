@@ -257,6 +257,10 @@ footer {
 		margin: 20px 0;
 	}
 
+	ul li:hover {
+		color: orange;
+	}
+
 	h2 {
 		font-size: 14px;
 	}
@@ -274,7 +278,7 @@ footer {
 	.right-footer {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 40px;
 	}
 
 	button {
@@ -291,5 +295,15 @@ footer {
 		input {
 			padding: 5px 10px;
 		}
+	}
+}
+
+.footer-secondary {
+	display: flex;
+	justify-content: space-between;
+
+	div {
+		display: flex;
+		gap: 10px;
 	}
 }
